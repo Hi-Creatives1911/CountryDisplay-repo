@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [countries, setCountries] = useState([]);
-  const [allCountries, setAllCountries] = useState([]); // Store original list
+  const [allCountries, setAllCountries] = useState([]);
 
   const handleSearch = (e) => {
     const value = e.target.value;
