@@ -52,6 +52,7 @@ body {
   align-items: center;
   gap: 20px;
   padding: 20px;
+  cursor: pointer;
 }
 .countries li {
   list-style: none;
@@ -86,4 +87,36 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.backBtn {
+  position: relative;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin-top: 20px;
+}
+
+.countryFlagLarge {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 15px;
+}
+
+.countryDetailPage {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.statesList {
+  list-style: none;
+  padding-left: 0;
 }
