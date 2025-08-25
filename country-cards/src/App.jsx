@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import data from "./countries.json";
+import CountryDetails from "./CountryDetails";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,6 +25,12 @@ function App() {
       );
       setCountries(filtered);
     }
+  };
+
+  const onBack = () => {
+    setPickedCountry(null);
+    setSearchTerm("");
+    setCountries(allCountries);
   };
 
   return (
@@ -63,47 +70,7 @@ function App() {
           ))}
         </ul>
       ) : (
-        <div className="countryDetailPage">
-          <h1>{pickedCountry.name}</h1>
-          <br />
-          <img
-            src={`https://flagcdn.com/${pickedCountry.code2.toLowerCase()}.svg`}
-            alt={pickedCountry.name}
-            className="countryFlagLarge"
-          />
-          <div className="countryDetails">
-            <h3>Capital</h3>
-            {pickedCountry.capital}
-            <br />
-            <br />
-            <h3>Region</h3>
-            {pickedCountry.region} <br />
-            <br />
-            <h3>SubRegion</h3>
-            {pickedCountry.subregion} <br />
-          </div>{" "}
-          <br />
-          <h3>States</h3>
-          {pickedCountry.states && pickedCountry.states.length > 0 ? (
-            <ul className="statesList">
-              {pickedCountry.states.map((s) => (
-                <li key={s.code}>{s.name}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No states available</p>
-          )}
-          <button
-            className="backBtn"
-            onClick={() => {
-              setPickedCountry(null);
-              setCountries(allCountries);
-              setSearchTerm("");
-            }}
-          >
-            ⬅ Back to Home
-          </button>
-        </div>
+        <CountryDetails country={pickedCountry} onBack={onBack} />
       )}
     </>
   );
